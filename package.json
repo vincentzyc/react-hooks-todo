@@ -2,7 +2,7 @@
 	"name": "react-hooks-todo",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": ".",
+  "homepage": ".",
 	"dependencies": {
 		"react": "^16.8.3",
 		"react-dom": "^16.8.3",
@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"start": "set PORT=3020 && react-scripts start",
-		"build": "react-scripts build && move build docs || mv build docs",
+		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
