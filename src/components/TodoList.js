@@ -12,10 +12,10 @@ export default function TodoList() {
     state.todos.length === 0 ? (
       <h4>Yay! All todos are done! Take a rest!</h4>
     ) : (
-      <TodoHeader>
-        <span className="float-right">{pluralize(state.todos.length)}</span>
-      </TodoHeader>
-    );
+        <TodoHeader>
+          <span className="float-right">{pluralize(state.todos.length)}</span>
+        </TodoHeader>
+      );
   return (
     <div className="row">
       <div className="col-md-12">

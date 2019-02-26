@@ -1,43 +1,23 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
-import React, { useContext, useReducer } from "react";
+import React, { useEffect, useContext, useReducer } from "react";
 
 import Store from "./context";
 import reducer from "./reducer";
 
-import { usePersistedContext, usePersistedReducer } from "./usePersist";
-
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
+function usePersistedContext(context, key = "state") {
+  const persistedContext = localStorage.getItem(key);
+  return persistedContext ? JSON.parse(persistedContext) : context;
+}
+
+function usePersistedReducer([state, dispatch], key = "state") {
+  useEffect(() => localStorage.setItem(key, JSON.stringify(state)), [state]);
+  return [state, dispatch];
+}
+
 function App() {
+  console.log(Store);
   // create a global store to store the state
   const globalStore = usePersistedContext(useContext(Store), "state");
 
