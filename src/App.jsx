@@ -29,7 +29,7 @@ function App() {
 
   return (
     // State.Provider passes the state and dispatcher to the down
-    <div style={{ textAlign: 'center' }}>
+    <div className="flex flex-column" style={{ width: '400px', margin: '20px auto' }}>
       <Store.Provider value={{ state, dispatch }} >
         <TodoForm />
         <TodoList />

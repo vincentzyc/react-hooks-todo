@@ -22,25 +22,16 @@ export default function TodoForm() {
   }
 
   return (
-    <div className="row">
-      <div className="col-md-12">
-        <br />
-        <div className="input-group">
-          <input
-            className="form-control"
-            value={todo}
-            autoFocus={true}
-            placeholder="Enter new todo"
-            onKeyUp={handleSubmitForm}
-            onChange={handleTodoChange}
-          />
-          <div className="input-group-append">
-            <button className="btn btn-primary" onClick={handleTodoAdd}>
-              Add
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="flex row">
+      <input
+        className="mg-r10 flex-auto"
+        value={todo}
+        autoFocus={true}
+        placeholder="Enter new todo"
+        onKeyUp={handleSubmitForm}
+        onChange={handleTodoChange}
+      />
+      <button className="btn" onClick={handleTodoAdd}>Add</button>
     </div>
   );
 }
