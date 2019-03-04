@@ -1,4 +1,5 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
+import { usePersistedContext, usePersistedReducer } from './usePersist'
 
 import Store from "./context";
 import reducer from "./reducer";
@@ -6,18 +7,7 @@ import reducer from "./reducer";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 
-function usePersistedContext(context, key = "state") {
-  const persistedContext = localStorage.getItem(key);
-  return persistedContext ? JSON.parse(persistedContext) : context;
-}
-
-function usePersistedReducer([state, dispatch], key = "state") {
-  useEffect(() => localStorage.setItem(key, JSON.stringify(state)), [state]);
-  return [state, dispatch];
-}
-
 function App() {
-  console.log(Store);
   // create a global store to store the state
   const globalStore = usePersistedContext(useContext(Store), "state");
 
